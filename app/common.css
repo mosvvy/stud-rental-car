@@ -1,0 +1,26 @@
+.button {
+  border-radius: 12px;
+  padding: 12px 99px;
+  width: 276px;
+  height: 44px;
+  background: var(--button);
+  font-weight: 600;
+  color: var(--white);
+}
+
+.button:hover {
+  background: var(--button-hover);
+}
+
+.button-more {
+  border: 1px solid var(--button);
+  border-radius: 12px;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
+  font-weight: 600;
+}
+
+.button-more:hover {
+  border-color: var(--button-hover);
+}

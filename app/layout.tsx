@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
+import "./common.css";
 
-const geistSans = Geist({
+const manropeSans = Manrope({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const interSans = Inter({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${manropeSans.variable} ${interSans.variable}`}>
         {children}
       </body>
     </html>
