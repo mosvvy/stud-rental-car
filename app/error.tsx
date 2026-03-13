@@ -1,3 +1,5 @@
+"use client";
+
 const Error = () => {
   return <p>An error occurred while loading the page.</p>;
 };
