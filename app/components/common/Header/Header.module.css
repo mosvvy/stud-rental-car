@@ -1,0 +1,21 @@
+.header {
+  background: var(--badges);
+  border-bottom: 1px solid var(--badges);
+  padding: 24px 120px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navList {
+  display: flex;
+  gap: 32px;
+}
+
+.navList a {
+  font-weight: 500;
+}
+
+.navList a:hover {
+  color: var(--button);
+}
