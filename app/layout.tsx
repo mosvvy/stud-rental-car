@@ -3,6 +3,7 @@ import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
 import "./common.css";
 import Header from "../components/common/Header/Header";
+import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 
 const manropeSans = Manrope({
   variable: "--font-geist-sans",
@@ -27,8 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manropeSans.variable} ${interSans.variable}`}>
-        <Header />
-        {children}
+        <TanStackProvider>
+          <Header />
+          {children}
+        </TanStackProvider>
       </body>
     </html>
   );
