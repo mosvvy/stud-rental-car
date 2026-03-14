@@ -35,9 +35,14 @@ async function fetchCars(
   return response.data;
 }
 
+async function fetchBrands(): Promise<string[]> {
+  const response = await instance.get<string[]>("/brands");
+  return response.data;
+}
+
 async function fetchCarById(id: string): Promise<Car> {
   const response = await instance.get<Car>(`/cars/${id}`);
   return response.data;
 }
 
-export { fetchCars, fetchCarById };
+export { fetchCars, fetchCarById, fetchBrands };

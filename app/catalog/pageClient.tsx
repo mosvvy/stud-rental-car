@@ -8,7 +8,11 @@ import { fetchCars } from "@/lib/api";
 import { useState } from "react";
 import Car from "@/types/cars";
 
-export default function CatalogClient() {
+interface CatalogClietnsProps {
+  brands: string[];
+}
+
+export default function CatalogClient({ brands }: CatalogClietnsProps) {
   const [cars, setCars] = useState<Car[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [brand, setBrand] = useState<string | undefined>(undefined);
@@ -51,7 +55,7 @@ export default function CatalogClient() {
 
   return (
     <>
-      <SearchForm onSubmit={handleSearch} />
+      <SearchForm brands={brands} onSubmit={handleSearch} />
       {data && data.cars.length > 0 ? (
         <CarsList cars={data.cars} />
       ) : (

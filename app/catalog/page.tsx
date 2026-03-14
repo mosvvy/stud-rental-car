@@ -1,7 +1,7 @@
 import { QueryClient } from "@tanstack/react-query";
 import styles from "./page.module.css";
 import CatalogClient from "./pageClient";
-import { fetchCars } from "@/lib/api";
+import { fetchBrands, fetchCars } from "@/lib/api";
 
 export default async function Catalog() {
   const queryClient = new QueryClient();
@@ -20,10 +20,12 @@ export default async function Catalog() {
       fetchCars(1, undefined, undefined, undefined, undefined, undefined),
   });
 
+  const brands = await fetchBrands();
+
   return (
     <main>
       <h1 className="visually-hidden">Car catalog</h1>
-      <CatalogClient />
+      <CatalogClient brands={brands} />
     </main>
   );
 }

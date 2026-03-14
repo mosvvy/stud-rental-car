@@ -2,34 +2,11 @@ import { Field, Form, Formik } from "formik";
 import styles from "./SearchForm.module.css";
 
 interface SearchFormProps {
+  brands: string[];
   onSubmit: () => void;
 }
 
-export default function SearchForm({ onSubmit }: SearchFormProps) {
-  const brands = [
-    "Aston Martin",
-    "Audi",
-    "BMW",
-    "Bentley",
-    "Buick",
-    "Chevrolet",
-    "Chrysler",
-    "GMC",
-    "HUMMER",
-    "Hyundai",
-    "Kia",
-    "Lamborghini",
-    "Land Rover",
-    "Lincoln",
-    "MINI",
-    "Mercedes-Benz",
-    "Mitsubishi",
-    "Nissan",
-    "Pontiac",
-    "Subaru",
-    "Volvo",
-  ];
-
+export default function SearchForm({ brands, onSubmit }: SearchFormProps) {
   const prices = [0, 10, 20];
 
   return (
