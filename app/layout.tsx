@@ -3,7 +3,7 @@ import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
 import "./common.css";
 import Header from "../components/common/Header/Header";
-import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
+import TanStackProvider from "@/components/common/TanStackProvider/TanStackProvider";
 
 const manropeSans = Manrope({
   variable: "--font-geist-sans",

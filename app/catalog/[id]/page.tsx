@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { fetchCarById } from "@/lib/api";
+import BookForm from "@/components/car/BookForm/BookForm";
 
 interface CarPageProps {
   params: Promise<{ id: string }>;
@@ -11,6 +12,8 @@ export default async function CarPage({ params }: CarPageProps) {
   const car = await fetchCarById(id);
 
   const [, city, country] = car.address.split(", ");
+
+  // const handleSubmit = () => {};
 
   return (
     <section>
@@ -25,7 +28,8 @@ export default async function CarPage({ params }: CarPageProps) {
               className={styles.image}
             />
           </div>
-          FORM
+          <BookForm />
+          {/* <BookForm onSubmit={handleSubmit} /> */}
         </div>
 
         <div className={styles.column}>
