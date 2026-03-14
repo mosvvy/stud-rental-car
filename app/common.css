@@ -1,11 +1,15 @@
 .button {
   border-radius: 12px;
-  padding: 12px 99px;
+  padding: 12px 24px;
   width: 276px;
   height: 44px;
   background: var(--button);
   font-weight: 600;
   color: var(--white);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button:hover {
