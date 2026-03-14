@@ -15,7 +15,13 @@ export default function CarCard({ car }: CarCardProps) {
   return (
     <div className={styles.carsItem} key={car.id}>
       <div className={styles.imgContainer}>
-        <Image src={car.img} alt={car.id} width={276} height={268} />
+        <Image
+          src={car.img}
+          alt={car.id}
+          width={276}
+          height={268}
+          className={styles.image}
+        />
         <div className={clsx(styles.like)}>O</div>
       </div>
       <div className={styles.title}>
