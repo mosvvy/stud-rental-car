@@ -2,6 +2,7 @@
 
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import toast from "react-hot-toast";
 import styles from "./BookForm.module.css";
 
 // interface BookFormProps {
@@ -20,6 +21,7 @@ const BookForm = () => {
     <Formik
       onSubmit={(values) => {
         // onSubmit();
+        toast.success("Success!");
         console.log(values);
       }}
       initialValues={{ name: "", email: "", bookingDate: "", comment: "" }}
