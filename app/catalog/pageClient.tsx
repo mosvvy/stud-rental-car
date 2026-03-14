@@ -13,7 +13,6 @@ interface CatalogClietnsProps {
 }
 
 export default function CatalogClient({ brands }: CatalogClietnsProps) {
-  const [cars, setCars] = useState<Car[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [brand, setBrand] = useState<string | undefined>(undefined);
   const [rentalPrice, setRentalPrice] = useState<string | undefined>(undefined);
@@ -45,13 +44,23 @@ export default function CatalogClient({ brands }: CatalogClietnsProps) {
     placeholderData: keepPreviousData,
   });
 
-  const handleSearch = () => {
+  const handleSearch = (values: {
+    brand?: string;
+    rentalPrice?: string;
+    minMileage?: string;
+    maxMileage?: string;
+  }) => {
     setLimit(undefined);
+    setCurrentPage(1);
+    if (values.brand) setBrand(values.brand);
+    if (values.rentalPrice) setRentalPrice(values.rentalPrice);
+    if (values.minMileage) setMinMileage(values.minMileage);
+    if (values.maxMileage) setMaxMileage(values.maxMileage);
   };
   const handleLoadMore = () => setLimit((prev = 12) => prev + LOAD_STEP);
 
   const total = data?.totalCars ?? 0;
-  const hasMore = (limit ?? 0) < total;
+  const hasMore = (limit ?? 12) < total;
 
   return (
     <>
