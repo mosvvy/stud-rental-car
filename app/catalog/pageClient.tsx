@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import styles from "./page.module.css";
 import SearchForm from "@/components/catalog/SearchForm/SearchForm";
 import CarsList from "@/components/catalog/CarsList/CarsList";
 
@@ -381,11 +379,12 @@ export default function CatalogClient() {
     },
   ];
 
+  const handleSearch = () => {};
   const handleLoadMore = () => {};
 
   return (
     <>
-      <SearchForm />
+      <SearchForm onSubmit={handleSearch} />
       <CarsList cars={cars} />
       <button className="button-more" onClick={handleLoadMore}>
         Load more
