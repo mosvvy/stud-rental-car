@@ -83,13 +83,29 @@ export default async function CarPage({ params }: CarPageProps) {
 
             <div>
               <h2 className={styles.subtitle}>Car Specifications:</h2>
-              <p className={styles.specification}>O Year: {car.year}</p>
-              <p className={styles.specification}>O Type: {car.type}</p>
               <p className={styles.specification}>
-                O Fuel Consumption: {car.fuelConsumption}
+                <svg className={styles.specIcon} width={16} height={16}>
+                  <use href="/images/sprite.svg#icon-calendar"></use>
+                </svg>
+                Year: {car.year}
               </p>
               <p className={styles.specification}>
-                O Engine Size: {car.engineSize}
+                <svg className={styles.specIcon} width={16} height={16}>
+                  <use href="/images/sprite.svg#icon-car"></use>
+                </svg>
+                Type: {car.type}
+              </p>
+              <p className={styles.specification}>
+                <svg className={styles.specIcon} width={16} height={16}>
+                  <use href="/images/sprite.svg#icon-fuel-pump"></use>
+                </svg>
+                Fuel Consumption: {car.fuelConsumption}
+              </p>
+              <p className={styles.specification}>
+                <svg className={styles.specIcon} width={16} height={16}>
+                  <use href="/images/sprite.svg#icon-gear"></use>
+                </svg>
+                Engine Size: {car.engineSize}
               </p>
             </div>
 

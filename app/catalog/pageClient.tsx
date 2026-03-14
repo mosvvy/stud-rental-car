@@ -1,5 +1,6 @@
 "use client";
 
+import styles from "./page.module.css";
 import SearchForm from "@/components/catalog/SearchForm/SearchForm";
 import CarsList from "@/components/catalog/CarsList/CarsList";
 
@@ -386,7 +387,10 @@ export default function CatalogClient() {
     <>
       <SearchForm onSubmit={handleSearch} />
       <CarsList cars={cars} />
-      <button className="button-more" onClick={handleLoadMore}>
+      <button
+        className={`button-more ${styles.button}`}
+        onClick={handleLoadMore}
+      >
         Load more
       </button>
     </>

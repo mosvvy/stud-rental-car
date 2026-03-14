@@ -97,6 +97,19 @@
 }
 
 .listItem::before {
-  content: "O";
+  margin-right: 8px;
+
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor; /* іконка успадковує колір тексту */
+  -webkit-mask: url("/images/check-circle.svg") no-repeat center;
+  -webkit-mask-size: contain;
+  mask: url("/images/check-circle.svg") no-repeat center;
+  mask-size: contain;
+}
+
+.specIcon {
   margin-right: 8px;
 }
