@@ -3,14 +3,13 @@ import styles from "./CarCard.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
-import css from "styled-jsx/css";
 
 interface CarCardProps {
   car: Car;
 }
 
 export default function CarCard({ car }: CarCardProps) {
-  const [street, city, country] = car.address.split(", ");
+  const [, city, country] = car.address.split(", ");
 
   return (
     <div className={styles.carsItem} key={car.id}>
