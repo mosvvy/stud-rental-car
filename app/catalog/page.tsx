@@ -1,5 +1,11 @@
 import styles from "./page.module.css";
+import CatalogClient from "./pageClient";
 
 export default function Catalog() {
-  return <h1>Welcome to the Catalog Page</h1>;
+  return (
+    <main>
+      <h1 className="visually-hidden">Car catalog</h1>
+      <CatalogClient />
+    </main>
+  );
 }

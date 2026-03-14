@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${manropeSans.variable} ${interSans.variable}`}>
         <Header />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );

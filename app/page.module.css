@@ -1,3 +1,7 @@
+.mainHome {
+  display: flex;
+}
+
 .heroSection {
   color: var(--white);
   background-image: url("/images/hero.png");
