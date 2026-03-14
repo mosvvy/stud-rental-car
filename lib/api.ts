@@ -5,8 +5,6 @@ const instance = axios.create({
   baseURL: "https://car-rental-api.goit.global",
 });
 
-const PER_PAGE = 12;
-
 interface CarsHttpResponse {
   cars: Car[];
   totalPages: number;
@@ -37,4 +35,9 @@ async function fetchCars(
   return response.data;
 }
 
-export { fetchCars };
+async function fetchCarById(id: string): Promise<Car> {
+  const response = await instance.get<Car>(`/cars/${id}`);
+  return response.data;
+}
+
+export { fetchCars, fetchCarById };
