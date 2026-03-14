@@ -47,7 +47,7 @@ export default function CatalogClient() {
   const handleLoadMore = () => setLimit((prev = 12) => prev + LOAD_STEP);
 
   const total = data?.totalCars ?? 0;
-  const hasMore = limit ?? 0 < total;
+  const hasMore = (limit ?? 0) < total;
 
   return (
     <>
