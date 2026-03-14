@@ -1,0 +1,102 @@
+.container {
+  width: 1200px;
+  margin: 0 auto;
+
+  padding-top: 84px;
+  padding-bottom: 104px;
+
+  display: flex;
+  gap: 72px;
+}
+
+.column {
+  width: 512px;
+}
+
+.imgContainer {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.image {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 20, 23, 0.5) 0%,
+    rgba(18, 20, 23, 0.5) 100%
+  );
+  object-fit: cover;
+}
+
+.mainInfo {
+  margin-bottom: 68px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+
+  margin-bottom: 8px;
+}
+
+.id {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--gray);
+  margin-left: 16px;
+}
+
+.wrapper {
+  margin-bottom: 32px;
+}
+
+.location,
+.mileage {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.location {
+  margin-right: 16px;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--button);
+}
+
+.description {
+  font-weight: 500;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.list {
+}
+
+.listItem,
+.specification {
+  margin-bottom: 16px;
+}
+
+.listItem:last-child,
+.specification:last-child {
+  margin-bottom: 0;
+}
+
+.listItem::before {
+  content: "O";
+  margin-right: 8px;
+}
