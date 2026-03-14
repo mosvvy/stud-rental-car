@@ -13,6 +13,11 @@
   object-fit: cover;
 }
 
+.likeBtn {
+  border: none;
+  background-color: transparent;
+}
+
 .like {
   position: absolute;
   top: 16px;

@@ -1,8 +1,11 @@
+"use client";
+
 import Car from "@/types/cars";
 import styles from "./CarCard.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
+import { useState } from "react";
 
 interface CarCardProps {
   car: Car;
@@ -10,6 +13,11 @@ interface CarCardProps {
 
 export default function CarCard({ car }: CarCardProps) {
   const [, city, country] = car.address.split(", ");
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleLike = () => {
+    setIsChecked(!isChecked);
+  };
 
   return (
     <div className={styles.carsItem} key={car.id}>
@@ -21,7 +29,19 @@ export default function CarCard({ car }: CarCardProps) {
           height={268}
           className={styles.image}
         />
-        <div className={clsx(styles.like)}>O</div>
+        <div className={styles.like}>
+          <button className={styles.likeBtn} onClick={handleLike}>
+            <svg width={16} height={16}>
+              <use
+                href={
+                  isChecked
+                    ? "/images/sprite.svg#icon-like-filled"
+                    : "/images/sprite.svg#icon-like-empty"
+                }
+              ></use>
+            </svg>
+          </button>
+        </div>
       </div>
       <div className={styles.title}>
         <p>
