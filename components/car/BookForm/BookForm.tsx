@@ -4,6 +4,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
 import styles from "./BookForm.module.css";
+import DateField from "./DateField";
 
 // interface BookFormProps {
 //   onSubmit: () => void;
@@ -12,7 +13,7 @@ import styles from "./BookForm.module.css";
 const bookingSchema = Yup.object({
   name: Yup.string().required("Required"),
   email: Yup.string().email("Valid email").required("Required"),
-  bookingDate: Yup.string(),
+  bookingDate: Yup.date().min(new Date(), "Date cannot be earlier than today"),
   comment: Yup.string(),
 });
 
@@ -52,13 +53,13 @@ const BookForm = () => {
           />
           <ErrorMessage name="email" component="div" className={styles.error} />
 
-          <Field
-            className={styles.input}
-            type="text"
-            id="bookingDate"
+          <DateField name="bookingDate" placeholder="Booking Date" />
+          <ErrorMessage
             name="bookingDate"
-            placeholder="Booking Date"
+            component="div"
+            className={styles.error}
           />
+
           <Field
             className={styles.input}
             type="text"
