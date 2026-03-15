@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 import { useState } from "react";
-import { useFavorites } from "@/lib/store/fauvoritesCarsStore";
+import { useFavorites } from "@/lib/store/favoritesCarsStore";
 
 interface CarCardProps {
   car: Car;

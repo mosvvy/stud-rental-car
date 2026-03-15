@@ -3,21 +3,30 @@
 import styles from "./page.module.css";
 import SearchForm from "@/components/catalog/SearchForm/SearchForm";
 import CarsList from "@/components/catalog/CarsList/CarsList";
-import { keepPreviousData, QueryClient, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { fetchCars } from "@/lib/api";
 import { useState } from "react";
-import Car from "@/types/cars";
+import { useSearchStore } from "@/lib/store/searchStore";
 
 interface CatalogClietnsProps {
   brands: string[];
 }
 
 export default function CatalogClient({ brands }: CatalogClietnsProps) {
+  const { filters } = useSearchStore();
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [brand, setBrand] = useState<string | undefined>(undefined);
-  const [rentalPrice, setRentalPrice] = useState<string | undefined>(undefined);
-  const [minMileage, setMinMileage] = useState<string | undefined>(undefined);
-  const [maxMileage, setMaxMileage] = useState<string | undefined>(undefined);
+  const [brand, setBrand] = useState<string | undefined>(
+    filters.brand ?? undefined,
+  );
+  const [rentalPrice, setRentalPrice] = useState<string | undefined>(
+    filters.rentalPrice ?? undefined,
+  );
+  const [minMileage, setMinMileage] = useState<string | undefined>(
+    filters.minMileage ?? undefined,
+  );
+  const [maxMileage, setMaxMileage] = useState<string | undefined>(
+    filters.maxMileage ?? undefined,
+  );
   const [limit, setLimit] = useState<number | undefined>(undefined);
 
   const LOAD_STEP = 4;
@@ -52,10 +61,10 @@ export default function CatalogClient({ brands }: CatalogClietnsProps) {
   }) => {
     setLimit(undefined);
     setCurrentPage(1);
-    if (values.brand) setBrand(values.brand);
-    if (values.rentalPrice) setRentalPrice(values.rentalPrice);
-    if (values.minMileage) setMinMileage(values.minMileage);
-    if (values.maxMileage) setMaxMileage(values.maxMileage);
+    setBrand(values.brand ?? "");
+    setRentalPrice(values.rentalPrice ?? "");
+    setMinMileage(values.minMileage ?? "");
+    setMaxMileage(values.maxMileage ?? "");
   };
   const handleLoadMore = () => setLimit((prev = 12) => prev + LOAD_STEP);
 

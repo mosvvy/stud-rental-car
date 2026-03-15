@@ -1,5 +1,6 @@
 import { Field, Form, Formik } from "formik";
 import styles from "./SearchForm.module.css";
+import { useSearchStore } from "@/lib/store/searchStore";
 
 interface SearchFormProps {
   brands: string[];
@@ -12,14 +13,32 @@ interface SearchFormProps {
 }
 
 export default function SearchForm({ brands, onSubmit }: SearchFormProps) {
+  const { filters, setFilters } = useSearchStore();
+
   const prices = [30, 40, 50, 60, 70, 80, 90, 100];
+  console.log({
+    brand: "",
+    rentalPrice: "",
+    minMileage: "",
+    maxMileage: "",
+    ...filters,
+  });
 
   return (
     <Formik
+      enableReinitialize
       onSubmit={(values) => {
+        console.log(values);
         onSubmit(values);
+        setFilters(values);
       }}
-      initialValues={{ brand: "", price: "", milFrom: "", milTo: "" }}
+      initialValues={{
+        brand: "",
+        rentalPrice: "",
+        minMileage: "",
+        maxMileage: "",
+        ...filters,
+      }}
     >
       <Form className={styles.from}>
         <div className={styles.wrapper}>
@@ -45,7 +64,7 @@ export default function SearchForm({ brands, onSubmit }: SearchFormProps) {
             <option value="">Choose a price</option>
             {prices.map((price) => (
               <option key={price} value={price}>
-                {price}
+                {`To ${price}`}
               </option>
             ))}
           </Field>
@@ -56,14 +75,14 @@ export default function SearchForm({ brands, onSubmit }: SearchFormProps) {
           <div className={styles.inputDouble}>
             <Field
               className={styles.numberFrom}
-              type="number"
+              type="text"
               id="minMileage"
               name="minMileage"
               placeholder="From"
             />
             <Field
               className={styles.numberTo}
-              type="number"
+              type="text"
               id="maxMileage"
               name="maxMileage"
               placeholder="To"

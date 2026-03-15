@@ -24,7 +24,7 @@ export const useFavorites = create<Favorites>()(
         })),
     }),
     {
-      name: "fauvorites",
+      name: "favorites",
     },
   ),
 );
