@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 import { useState } from "react";
+import { useFavorites } from "@/lib/store/fauvoritesCarsStore";
 
 interface CarCardProps {
   car: Car;
@@ -13,9 +14,15 @@ interface CarCardProps {
 
 export default function CarCard({ car }: CarCardProps) {
   const [, city, country] = car.address.split(", ");
-  const [isChecked, setIsChecked] = useState(false);
+  const { favorites, addFavorite, removeFavorite } = useFavorites();
+  const [isChecked, setIsChecked] = useState(favorites.includes(car.id));
 
   const handleLike = () => {
+    if (isChecked) {
+      removeFavorite(car.id);
+    } else {
+      addFavorite(car.id);
+    }
     setIsChecked(!isChecked);
   };
 
