@@ -1,6 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import styles from "./SearchForm.module.css";
 import { useSearchStore } from "@/lib/store/searchStore";
+import MileageField from "./MileageField";
 
 interface SearchFormProps {
   brands: string[];
@@ -65,18 +66,20 @@ export default function SearchForm({ brands, onSubmit }: SearchFormProps) {
         <div className={styles.wrapper}>
           <label className={styles.label}>Сar mileage / km</label>
           <div className={styles.inputDouble}>
-            <Field
+            <MileageField
               className={styles.numberFrom}
               type="text"
               id="minMileage"
               name="minMileage"
+              prefix="From"
               placeholder="From"
             />
-            <Field
+            <MileageField
               className={styles.numberTo}
               type="text"
               id="maxMileage"
               name="maxMileage"
+              prefix="To"
               placeholder="To"
             />
           </div>

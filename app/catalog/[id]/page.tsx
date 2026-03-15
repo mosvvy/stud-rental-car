@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { fetchCarById } from "@/lib/api";
 import BookForm from "@/components/car/BookForm/BookForm";
+import { formatMileage } from "@/utils/formatUtils";
 
 interface CarPageProps {
   params: Promise<{ id: string }>;
@@ -40,9 +41,14 @@ export default async function CarPage({ params }: CarPageProps) {
             </h1>
             <div className={styles.wrapper}>
               <div className={styles.location}>
-                LOC {city}, {country}
+                <svg className={styles.specIcon} width={16} height={16}>
+                  <use href="/images/sprite.svg#icon-location"></use>
+                </svg>
+                {city}, {country}
               </div>
-              <div className={styles.mileage}>Mileage: {car.mileage} km</div>
+              <div className={styles.mileage}>
+                Mileage: {formatMileage(car.mileage)} km
+              </div>
               <div className={styles.price}>${car.rentalPrice}</div>
             </div>
             <p className={styles.description}>{car.description}</p>

@@ -7,6 +7,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { useState } from "react";
 import { useFavorites } from "@/lib/store/favoritesCarsStore";
+import { formatMileage } from "@/utils/formatUtils";
 
 interface CarCardProps {
   car: Car;
@@ -64,7 +65,7 @@ export default function CarCard({ car }: CarCardProps) {
         </p>
         <p>
           <span>{car.type}</span>
-          {car.mileage} km
+          {formatMileage(car.mileage)} km
         </p>
       </div>
       <Link className="button" href={`/catalog/${car.id}`}>
